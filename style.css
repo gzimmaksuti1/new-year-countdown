@@ -1,0 +1,94 @@
+/* Body dhe background */
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    font-family: cursive;
+    background: linear-gradient(135deg, #5c2aff, #3bb0ff);
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Efekti glow rreth tekstit */
+h2{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* Vit me neon + pulsues */
+#gm-year{
+    font-size: 5em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff;
+    animation: pulse 1.8s infinite ease-in-out;
+}
+
+/* Animacion pulse */
+@keyframes pulse {
+    0% { transform: scale(1); text-shadow: 0 0 20px rgba(255,255,255,.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff; }
+    50% { transform: scale(1.1); text-shadow: 0 0 40px #fff, 0 0 60px #5c2aff, 0 0 80px #3bb0ff; }
+    100% { transform: scale(1); text-shadow: 0 0 20px rgba(255,255,255,.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff; }
+}
+
+/* Container countdown (glassmorphism) */
+#gm-countdown{
+    margin: 30px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 25px;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease-in-out;
+    animation: gradientShift 4s infinite alternate;
+}
+
+/* Animacion gradient background */
+@keyframes gradientShift {
+    0% { background: rgba(255,255,255,0.08); }
+    50% { background: rgba(255,255,255,0.15); }
+    100% { background: rgba(255,255,255,0.08); }
+}
+
+/* Hover efekt për container */
+#gm-countdown:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(59,176,255,0.7), 0 0 70px rgba(92,42,255,0.7);
+}
+
+/* Div brenda countdown */
+#gm-countdown div{
+    margin: 0 15px;
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-top: -20px;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px #5c2aff;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Tekst posht numrave */
+#gm-countdown div::before{
+    content: attr(data-label);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.35em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+}
