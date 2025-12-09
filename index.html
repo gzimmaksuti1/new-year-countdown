@@ -1,22 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Basic meta setup for character encoding and responsive design -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website title shown in browser tab -->
+    <title>Coffee Shop</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>New Year Countdown</title>
 </head>
+
 <body>
-    <input type="date" id="pick-date">
-    <h2>Countdown to New Year</h2>
-    <div id="gm-year"></div>
-    <div id="gm-countdown">
-        <div data-label="Days" id="gm-days">00</div> :
-        <div data-label="Hours" id="gm-hours">00</div> :
-        <div data-label="Minutes" id="gm-minutes">00</div> :
-        <div data-label="Seconds" id="gm-seconds">00</div>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="gm-container header-container">
+
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <i class="fa-solid fa-mug-hot gm-logo-icon"></i>
+                <div class="gm-logo-text">Gizzy<span>Coffee</span></div>
+            </a>
+
+            <!-- Navigation -->
+            <nav>
+               <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+               </ul>
+           </nav>
+
+
+            <!-- Buttons -->
+            <div id="gm-nav-buttons">
+               <a href="#" id="open-signin" class="btn gm-btn-secondary">Sign In</a>
+                <a href="#" class="btn btn-primary">Order Online</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="gm-hero" id="home">
+        <div class="gm-container">
+
+            <div class="gm-hero-content">
+
+                <div class="gm-hero-subtitle">
+                    <i class="fa-solid fa-seedling"></i>
+                    Ethically Sourced Beans
+                </div>
+
+                <h1 class="gm-hero-title">
+                    Artisan Coffee <br>
+                    <span>Crafted with Passion</span>
+                </h1>
+
+                <p class="gm-hero-text">
+                    Experience the rich flavors of our ethically sourced, hand-roasted coffee beans.
+                    Every cup is a commitment to quality.
+                </p>
+
+                <div class="gm-hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Our Blends</a>
+                    <a href="#" class="btn gm-btn-secondary">Visit Our Cafe</a>
+                </div>
+            </div>
+
+            <img src="img/2.jpg" alt="Hero Coffee" width="370px">
+
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS SECTION ================= -->
+    <section class="gm-products" id="products">
+        <div class="gm-container">
+
+            <div class="gm-section-header">
+                <div class="gm-section-subtitle">Our Selection</div>
+                <h2 class="gm-section-title">Signature Coffee Blends</h2>
+                <p class="gm-section-description">
+                    Discover our curated list of blends, each crafted for a unique flavor experience.
+                </p>
+            </div>
+
+            <div class="gm-products-grid">
+
+                <!-- Product 1 -->
+                <div class="gm-product-card">
+                    <div class="gm-product-image">
+                        <img src="img/3.webp" alt="Espresso">
+                    </div>
+
+                    <div class="gm-product-info">
+                        <div class="gm-product-tag">BESTSELLER</div>
+                        <h3 class="gm-product-title">Dark Roast Espresso</h3>
+                        <p class="gm-product-description">
+                            Bold and intense espresso with chocolate and caramel notes.
+                        </p>
+                        <div class="gm-product-footer">
+                            <div class="gm-product-price">1.50€</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="gm-product-card">
+                    <div class="gm-product-image">
+                        <img src="img/4.webp" alt="Macchiato">
+                    </div>
+
+                    <div class="gm-product-info">
+                        <div class="gm-product-tag">Macchiato</div>
+                        <h3 class="gm-product-title">Espresso Macchiato</h3>
+                        <p class="gm-product-description">
+                            A balanced espresso with light milk foam and caramel.
+                        </p>
+                        <div class="gm-product-footer">
+                            <div class="gm-product-price">1.00€</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="gm-product-card">
+                    <div class="gm-product-image">
+                        <img src="img/5.jpeg" alt="Cappuccino">
+                    </div>
+
+                    <div class="gm-product-info">
+                        <div class="gm-product-tag">Cappuccino</div>
+                        <h3 class="gm-product-title">Classic Cappuccino</h3>
+                        <p class="gm-product-description">
+                            Espresso, milk, and foam topped with cocoa.
+                        </p>
+                        <div class="gm-product-footer">
+                            <div class="gm-product-price">2.50€</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="gm-container">
+
+            <div class="gm-footer-content">
+
+                <div class="footer-column">
+                    <h3>About GizzyCoffee</h3>
+                    <p>
+                        We deliver fresh, ethically sourced coffee crafted with passion.
+                    </p>
+
+                    <div class="gm-social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Coffee Blends</a></li>
+                        <li><a href="#">Brewing Guides</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-location-dot"></i> Lubavec, Skenderaj</li>
+                        <li><i class="fa-solid fa-phone"></i> (+383)49-200-863</li>
+                        <li><i class="fa-solid fa-envelope"></i> support@gizzycoffee.com</li>
+                        <li><i class="fa-solid fa-clock"></i> Mon - Fri: 8am - 6pm</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                &copy; 2024 GizzyCoffee. All rights reserved.
+            </div>
+
+       
+
+    </footer>
+
+   <!-- SIGN IN MODAL -->
+<div id="signinModal" class="gm-modal">
+    <div class="gm-modal-content">
+        <span class="gm-close" id="closeSignin">&times;</span>
+        <h2>Sign In</h2>
+
+        <form id="signinForm">
+            <input type="email" id="signinEmail" placeholder="Email" required>
+            <input type="password" id="signinPassword" placeholder="Password" required>
+            <button type="submit" class="gm-btn">Sign In</button>
+        </form>
+
+        <p>No account? <span id="openRegister" class="gm-link">Create one</span></p>
     </div>
-    <script src="js/main.js"></script>
+</div>
+
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="gm-modal">
+    <div class="gm-modal-content">
+        <span class="gm-close" id="closeRegister">&times;</span>
+        <h2>Create Account</h2>
+
+        <form id="registerForm">
+            <input type="text" id="regFirstname" placeholder="First Name" required>
+            <input type="text" id="regLastname" placeholder="Last Name" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="password" id="regPassword" placeholder="Password (min 8 chars)" minlength="8" required>
+            <button type="submit" class="gm-btn">Create Account</button>
+        </form>
+
+        <p>Already have an account? <span id="openSignin" class="gm-link">Sign In</span></p>
+    </div>
+</div>
+<!-- SIGN IN MODAL -->
+<div id="signinModal" class="gm-modal">
+    <div class="gm-modal-content">
+        <span class="gm-close" id="closeSignin">&times;</span>
+        <h2>Sign In</h2>
+
+        <form id="signinForm">
+            <input type="email" id="signinEmail" placeholder="Email" required>
+            <input type="password" id="signinPassword" placeholder="Password" required>
+            <button type="submit" class="gm-btn">Sign In</button>
+        </form>
+
+        <p>No account? <span id="openRegister" class="gm-link">Create one</span></p>
+    </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="gm-modal">
+    <div class="gm-modal-content">
+        <span class="gm-close" id="closeRegister">&times;</span>
+        <h2>Create Account</h2>
+
+        <form id="registerForm">
+            <input type="text" id="regFirstname" placeholder="First Name" required>
+            <input type="text" id="regLastname" placeholder="Last Name" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <input type="password" id="regPassword" placeholder="Password (min 8 chars)" minlength="8" required>
+            <button type="submit" class="gm-btn">Create Account</button>
+        </form>
+
+        <p>Already have an account? <span id="openSignin" class="gm-link">Sign In</span></p>
+    </div>
+</div>
+<div id="mapOptions" class="map-popup">
+    <button id="gmaps">📍 Google Maps</button>
+    <button id="applemaps">🍏 Apple Maps</button>
+    <button id="waze">🚗 Waze</button>
+</div>
+
+
+
+    <!-- JavaScript -->
+    <script src="js/gm.js"></script>
+
 </body>
+
 </html>

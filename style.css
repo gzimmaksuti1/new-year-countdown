@@ -1,94 +1,639 @@
-/* Body dhe background */
-body{
+/* ---------------------------------------------------
+   COLOR VARIABLES (Used across the whole website)
+--------------------------------------------------- */
+:root {
+    --coffee-dark: #3e2723;
+    --coffee-medium: #6f4e37;
+    --coffee-light: #c4a484;
+    --cream: #f5f5dc;
+    --accent: #d2b48c;
+    --coffee-gold: #d4af37;
+    --text-dark: #2c2416;
+    --text-light: #f3f3f3;
+}
+
+/* Reset: Removes default browser spacing */
+* {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    justify-content: center;
-    font-family: cursive;
-    background: linear-gradient(135deg, #5c2aff, #3bb0ff);
-    overflow: hidden;
-    color: #fff;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Efekti glow rreth tekstit */
-h2{
+/* Global body styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Centers content and limits max width */
+.gm-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------------------------
+   HEADER (Fixed top navigation bar)
+--------------------------------------------------- */
+header {
+    background: #161515;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+}
+
+.gm-logo-icon {
+    color: var(--coffee-gold);
+    font-size: 28px;
+}
+
+.gm-logo-text {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--coffee-medium);
     text-transform: uppercase;
-    letter-spacing: 4px;
-    text-align: center;
-    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+    font-family: 'Playfair Display', serif;
 }
 
-/* Vit me neon + pulsues */
-#gm-year{
-    font-size: 5em;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff;
-    animation: pulse 1.8s infinite ease-in-out;
+.gm-logo-text span {
+    color: var(--coffee-gold);
 }
 
-/* Animacion pulse */
-@keyframes pulse {
-    0% { transform: scale(1); text-shadow: 0 0 20px rgba(255,255,255,.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff; }
-    50% { transform: scale(1.1); text-shadow: 0 0 40px #fff, 0 0 60px #5c2aff, 0 0 80px #3bb0ff; }
-    100% { transform: scale(1); text-shadow: 0 0 20px rgba(255,255,255,.9), 0 0 30px #5c2aff, 0 0 40px #3bb0ff; }
-}
-
-/* Container countdown (glassmorphism) */
-#gm-countdown{
-    margin: 30px;
-    backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 25px;
-    width: 80%;
-    max-width: 900px;
+/* Navigation Menu */
+nav ul {
+    list-style: none;
     display: flex;
-    justify-content: center;
-    height: 150px;
-    align-items: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
-    transition: all 0.3s ease-in-out;
-    animation: gradientShift 4s infinite alternate;
+    gap: 35px;
 }
 
-/* Animacion gradient background */
-@keyframes gradientShift {
-    0% { background: rgba(255,255,255,0.08); }
-    50% { background: rgba(255,255,255,0.15); }
-    100% { background: rgba(255,255,255,0.08); }
-}
-
-/* Hover efekt për container */
-#gm-countdown:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(59,176,255,0.7), 0 0 70px rgba(92,42,255,0.7);
-}
-
-/* Div brenda countdown */
-#gm-countdown div{
-    margin: 0 15px;
-    font-size: 2.8em;
+nav a {
+    text-decoration: none;
+    color: var(--coffee-medium);
     font-weight: 600;
-    margin-top: -20px;
+    font-size: 16px;
     position: relative;
-    text-align: center;
-    width: 100px;
-    text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px #5c2aff;
-    animation: pulse 1.5s infinite alternate;
+    padding: 5px 0;
+    transition: all 0.3s ease;
 }
 
-/* Tekst posht numrave */
-#gm-countdown div::before{
-    content: attr(data-label);
+nav a::after {
+    content: '';
     position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.35em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
+    width: 0;
+    height: 2px;
+    background: var(--coffee-gold);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Buttons in header */
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+/* Solid button */
+.btn-primary {
+    background: var(--coffee-medium);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--coffee-dark);
+    transform: translate(-3px);
+}
+
+/* Outline button */
+.btn.gm-btn-secondary {
+    background: transparent;
+    color: var(--coffee-medium);
+    border: 2px solid var(--coffee-medium);
+}
+
+.btn.gm-btn-secondary:hover {
+    background: rgba(111, 78, 55, 0.05);
+    transform: translate(-3px);
+}
+
+/* ---------------------------------------------------
+   HERO SECTION
+--------------------------------------------------- */
+
+.gm-hero {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.gm-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0b0705 0%, #010000 50%);
+    z-index: -1;
+}
+
+.gm-hero-content {
+    width: 750px;
+    color: var(--text-light);
+    animation: fadeInUp 1s ease-out;
+}
+
+.gm-hero .gm-container {
+    display: flex;
+}
+
+.gm-hero-subtitle {
+    font-size: 20px;
+    color: var(--accent);
+    margin-top: 20px;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gm-hero-title {
+    font-size: 50px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    color: var(--coffee-light);
+}
+
+.gm-hero-title span {
+    color: var(--coffee-gold);
+    position: relative;
+    animation: goldShine 2.5s infinite linear;
+}
+
+.gm-hero-text {
+    font-size: 16px;
+    margin-bottom: 120px;
+    max-width: 700px;
+}
+
+.gm-hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* ---------------------------------------------------
+   PRODUCTS SECTION
+--------------------------------------------------- */
+.gm-products {
+    padding: 120px 0;
+    background-color: #161515;
+    position: relative;
+    border-top: 4px solid var(--coffee-gold);
+}
+
+.gm-section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 70px;
+}
+
+.gm-section-subtitle {
+    font-size: 20px;
+    color: var(--coffee-gold);
+    margin-bottom: 15px;
+}
+
+.gm-section-title {
+    font-size: 42px;
+    color: var(--coffee-gold);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    animation: fadeSlideUp 1.2s ease forwards;
+    opacity: 0;
+}
+
+.gm-section-desc {
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+.gm-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gm-product-card {
+    background: var(--coffee-dark);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.45s ease;
+    transform-style: preserve-3d;
+}
+
+.gm-product-card:hover {
+    transform: translateY(-20px) scale(1.03);
+    box-shadow: 
+        0 15px 25px rgba(0,0,0,0.4),
+        0 0 25px rgba(212,175,55,0.35);
+}
+
+.gm-product-image {
+    height: 280px;
+    overflow: hidden;
+}
+
+.gm-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gm-product-card:hover .gm-product-image img {
+    transform: scale(1.1) rotate(-1deg);
+}
+
+.gm-product-info {
+    padding: 25px;
+    position: relative;
+}
+
+.gm-product-tag {
+    position: absolute;
+    top: -20px;
+    right: 25px;
+    background: var(--coffee-gold);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    animation: goldPulse 2.5s infinite ease-in-out;
+}
+
+.gm-product-title {
+    font-size: 24px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.gm-product-description {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.gm-product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gm-product-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--coffee-gold);
+}
+
+.rating {
+    color: var(--coffee-gold);
+    font-size: 16px;
+}
+
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
+footer {
+    background: var(--text-dark);
+    color: var(--text-light);
+    padding: 70px 0 30px;
+    border-top: 4px solid var(--coffee-gold);
+}
+
+.gm-footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-column h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--coffee-gold);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--coffee-gold);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--cream);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--coffee-gold);
+    transform: translateY(-6px) scale(1.15);
+}
+
+/* ---------------------------------------------------
+   SIGN IN MODAL
+--------------------------------------------------- */
+.signin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+}
+
+.signin-overlay.show {
+    display: flex !important;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.signin-box {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    text-align: center;
+    color: #333;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.4s ease forwards;
+}
+
+.signin-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+
+#signin-btn,
+#close-signin {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#signin-btn {
+    background: var(--coffee-medium);
+    color: white;
+}
+
+#signin-btn:hover {
+    background: var(--coffee-dark);
+}
+
+#close-signin {
+    background: #ccc;
+}
+
+/* ---------------------------------------------------
+   ANIMATIONS
+--------------------------------------------------- */
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* TITULLI - GOLD SHINE */
+@keyframes goldShine {
+    0% { text-shadow: 0 0 5px rgba(212,175,55,0.4); }
+    50% { text-shadow: 0 0 18px rgba(212,175,55,0.9); }
+    100% { text-shadow: 0 0 5px rgba(212,175,55,0.4); }
+}
+
+/* SECTION TITLES */
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* PRODUCT TAG PULSE */
+@keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(212,175,55,0.4); }
+    50%      { box-shadow: 0 0 18px rgba(212,175,55,0.8); }
+}
+
+/* SIGN IN FADE + POP */
+@keyframes fadeIn {
+    0% { opacity: 0; backdrop-filter: blur(0px); }
+    100% { opacity: 1; backdrop-filter: blur(6px); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    70% { opacity: 1; transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* SCROLL REVEAL SUPPORT */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* MODAL STYLE */
+.gm-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn .4s ease;
+}
+
+.gm-modal-content {
+    background: #fff;
+    padding: 25px;
+    width: 350px;
+    border-radius: 12px;
+    text-align: center;
+    animation: slideUp .4s ease;
+}
+
+.gm-modal input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.gm-btn {
+    width: 100%;
+    padding: 12px;
+    background: #b35c2e;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gm-btn:hover {
+    background: #8e471f;
+}
+
+.gm-close {
+    float: right;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.gm-link {
+    color: #b35c2e;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.map-popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #111;
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 9999;
+    animation: fadeIn 0.25s ease;
+}
+
+.map-popup button {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.map-popup button:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
